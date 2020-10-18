@@ -6,6 +6,7 @@ import { useViewportScroll } from "framer-motion"
 import useWindowSize from "../../utils/useWindowSize"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import Heading from "../motion/heading"
 
 const ShowCase = ({ data }) => {
   const { height: wHeight } = useWindowSize()
@@ -25,9 +26,7 @@ const ShowCase = ({ data }) => {
   return (
     <Jumbotron className="bg-transparent">
       <Container fluid>
-        <h2 className="display-4 font-weight-bold mb-0">
-          <p className="text-stroke">ShowCase</p>
-        </h2>
+        <Heading>ShowCase</Heading>
 
         <Row className="justify-content-around" ref={rowRef}>
           <Col lg="5">

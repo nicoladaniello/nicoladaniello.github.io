@@ -5,8 +5,7 @@ import vertexShader from "./vertexShader.vert"
 import fragmentShader from "./fragmentShader.frag"
 
 const Figure = ({ images, bounds, scrollProgress, ...rest }) => {
-  // doesn't work with SSR;
-  if (typeof window === "undefined") return null
+  const isClient = typeof window === "object"
 
   // This reference will give us direct access to the mesh
   const mesh = useRef()
@@ -40,7 +39,7 @@ const Figure = ({ images, bounds, scrollProgress, ...rest }) => {
     vertexShader: vertexShader,
     fragmentShader: fragmentShader,
     defines: {
-      PR: window.devicePixelRatio.toFixed(1),
+      PR: isClient ? window.devicePixelRatio.toFixed(1) : null,
     },
   })
 

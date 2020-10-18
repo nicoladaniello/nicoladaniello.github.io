@@ -19,7 +19,7 @@ const SceneComponent = props => {
   Matter.use(MatterAttractors)
 
   useLayoutEffect(() => {
-    if (typeof window === undefined) return
+    const isClient = typeof window === "object"
     // create an engine
     const engine = Engine.create()
 
@@ -28,8 +28,8 @@ const SceneComponent = props => {
       canvas: ref.current,
       engine: engine,
       options: {
-        width: window.innerWidth,
-        height: window.innerHeight,
+        width: isClient ? window.innerWidth : null,
+        height: isClient ? window.innerHeight : null,
         background: "rgba(0, 0, 0, 0)",
         wireframes: false,
       },

@@ -10,6 +10,8 @@ import profileImg from "../images/profile.jpg"
 import Footer from "../components/footer"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import Parallax from "../components/motion/parallax"
+import Heading from "../components/motion/heading"
 
 const showCaseData = {
   contents: [
@@ -44,66 +46,68 @@ const IndexPage = () => {
   return (
     <Layout>
       <SEO title="Home" />
-
-      <Container>
-        <Col md="9">
-          <p className="lead">
-            I am a technology enthusiast, and experienced full-stack developer.
-            During my career I developed different softwares including desktop,
-            mobile and web applications for businesses, individuals and for
-            personal use. If you'd like to get in contact please feel free to
-            drop me an email and I'll get back to you as soon as possible.
-          </p>
-          <p>
-            <a href="mailto:nicola.danie@gmail.com" className="btn btn-link">
-              Get in touch <FontAwesomeIcon icon={faArrowRight} />
-            </a>
-          </p>
-        </Col>
-      </Container>
+      <Parallax>
+        <Container>
+          <Col md="9">
+            <p className="lead">
+              I am a technology enthusiast, and experienced full-stack
+              developer. During my career I developed different softwares
+              including desktop, mobile and web applications for businesses,
+              individuals and for personal use. If you'd like to get in contact
+              please feel free to drop me an email and I'll get back to you as
+              soon as possible.
+            </p>
+            <p>
+              <a href="mailto:nicola.danie@gmail.com" className="btn btn-link">
+                Get in touch <FontAwesomeIcon icon={faArrowRight} />
+              </a>
+            </p>
+          </Col>
+        </Container>
+      </Parallax>
 
       <ShowCase data={showCaseData} />
 
       <Lorem />
 
       {/** About */}
-      <Jumbotron fluid id="about" className="bg-transparent mb-0">
-        <Container fluid>
-          <Row className="justify-content-around">
-            <Col lg="4">
-              {/* <Image style={{ marginTop: "-30%" }}></Image> */}
-              <img
-                className="img-fluid"
-                alt="Profile of Nicola D'Aniello"
-                src={profileImg}
-              />
-            </Col>
-            <Col lg="5">
-              <h2 className="display-4 font-weight-bold mb-0">
-                <p className="text-stroke">About</p>
-              </h2>
-              <p className="lead">
-                After self-teaching myself coding at age twelve I’ve developed a
-                strong passion for this industry, which encouraged me to go deep
-                into various subjects of computer science and gain skills in
-                several modern full-stack technologies.
-                <br />
-                I'm also an upcoming (November 2020) BSc graduate in Computing.
-                If you'd like to hire me or see my CV please drop me an email,
-                and I'll get bacl to you as soon as possible.
-              </p>
-              <p>
-                <a
-                  href="mailto:nicola.danie@gmail.com"
-                  className="btn btn-link"
-                >
-                  Get in touch <FontAwesomeIcon icon={faArrowRight} />
-                </a>
-              </p>
-            </Col>
-          </Row>
-        </Container>
-      </Jumbotron>
+      <Parallax>
+        <Jumbotron fluid id="about" className="bg-transparent mb-0">
+          <Container fluid>
+            <Row className="justify-content-around">
+              <Col lg="4">
+                {/* <Image style={{ marginTop: "-30%" }}></Image> */}
+                <img
+                  className="img-fluid"
+                  alt="Profile of Nicola D'Aniello"
+                  src={profileImg}
+                />
+              </Col>
+              <Col lg="5">
+                <Heading>About</Heading>
+                <p className="lead">
+                  After self-teaching myself coding at age twelve I’ve developed
+                  a strong passion for this industry, which encouraged me to go
+                  deep into various subjects of computer science and gain skills
+                  in several modern full-stack technologies.
+                  <br />
+                  I'm also an upcoming (November 2020) BSc graduate in
+                  Computing. If you'd like to hire me or see my CV please drop
+                  me an email, and I'll get bacl to you as soon as possible.
+                </p>
+                <p>
+                  <a
+                    href="mailto:nicola.danie@gmail.com"
+                    className="btn btn-link"
+                  >
+                    Get in touch <FontAwesomeIcon icon={faArrowRight} />
+                  </a>
+                </p>
+              </Col>
+            </Row>
+          </Container>
+        </Jumbotron>
+      </Parallax>
 
       <Footer />
     </Layout>

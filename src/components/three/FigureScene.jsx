@@ -4,12 +4,11 @@ import { Card } from "react-bootstrap"
 import Figure from "./figure"
 
 const FigureScene = ({ images, bounds, scrollProgress, ...rest }) => {
-  // doesn't work with SSR;
-  if (typeof window === "undefined") return null
+  const isClient = typeof window === "object"
 
   const perspective = 800
   const fov = (180 * (2 * Math.atan(bounds.height / 2 / perspective))) / Math.PI
-  const aspect = window.innerWidth / window.innerHeight
+  const aspect = isClient ? window.innerWidth / window.innerHeight : 1
   const camera = {
     fov,
     aspect,
